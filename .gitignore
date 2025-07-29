@@ -2639,4 +2639,7 @@ outputs/
 *.bak
 *.old
 *.orig
-*.toml
+
+# Streamlit secrets
+.secrets.toml
+.streamlit/secrets.toml
