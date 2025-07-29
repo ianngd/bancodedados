@@ -1,5 +1,0 @@
-streamlit
-sqlalchemy
-pandas
-urllib.parse
-datetime
