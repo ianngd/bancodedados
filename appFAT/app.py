@@ -17,7 +17,7 @@ menu = st.sidebar.selectbox("📂 Selecione a opção", ["Clientes", "Produtos",
 def conectar():
     db = st.secrets["database"]
     senha_escapada = urllib.parse.quote_plus(db["password"])
-    conn_str = f"mysql+pymysql://{db['user']}:{senha_escapada}@{db['host']}:{db['port']}/{db['database']}?auth_plugin=mysql_native_password"
+    conn_str = f"mysql+pymysql://{db['user']}:{senha_escapada}@{db['host']}:{db['port']}/{db['database']}"
     return create_engine(conn_str)
 
 engine = conectar()
