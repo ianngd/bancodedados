@@ -65,7 +65,7 @@ if menu == "Clientes":
                                         or busca in str(row["cpf"]).lower() 
                                         or busca in str(row["email"]).lower(), axis=1)]
 
-        st.dataframe(df)
+        st.dataframe(df, use_index=False)
 
     except Exception as e:
         st.error(f"Erro: {e}")
@@ -88,7 +88,7 @@ elif menu == "Produtos":
             df = df[df["descricao"] == nome_produto_filtro]
         if id_produto_filtro != "Todos":
             df = df[df["id_produto"] == id_produto_filtro]
-        st.dataframe(df)
+        st.dataframe(df, use_index=False)
 
     except Exception as e:
         st.error(f"Erro: {e}")
@@ -115,7 +115,7 @@ elif menu == "Vendas":
             df = df[df["forma_pagamento"] == forma_pagamento_filtro]
         if produto_filtro != "Todos":
             df = df[df["produto"] == produto_filtro]
-        st.dataframe(df)
+        st.dataframe(df, use_index=False)
     except Exception as e:
         st.error(f"Erro: {e}")
 
