@@ -115,7 +115,7 @@ elif menu == "Vendas":
             df = df[df["forma_pagamento"] == forma_pagamento_filtro]
         if produto_filtro != "Todos":
             df = df[df["produto"] == produto_filtro]
-        st.dataframe(df, use_index=False)
+        st.table(df, hide_index = True)
     except Exception as e:
         st.error(f"Erro: {e}")
 
