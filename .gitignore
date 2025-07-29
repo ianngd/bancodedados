@@ -2639,3 +2639,4 @@ outputs/
 *.bak
 *.old
 *.orig
+*.toml
