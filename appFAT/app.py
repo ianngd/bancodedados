@@ -3,7 +3,13 @@ import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy import text
 import urllib.parse # Importar para escapar a minha senha com caracteres especiais
-from datetime import date 
+from datetime import date
+
+def exibir_pdf_via_url(url): #Chamada para exibir o PDF via URL
+    st.markdown(f'''
+        <iframe src="{url}" width="700" height="1000" 
+        style="border: none;"></iframe>
+    ''', unsafe_allow_html=True)
 
 # ===== CONFIGURAÇÕES INICIAIS =====
 st.set_page_config(page_title="Dashboard Streamlit", layout="wide")
@@ -255,7 +261,15 @@ elif menu == "Registros":
                 st.error(f"Erro ao registrar venda: {e}")
 
 elif menu == "Relatório Power BI":
-    st.subheader("📊 Relatório Integrado - Power BI")
-    powerbi_url = "https://app.powerbi.com/view?r=eyJrIjoiOTM0NWQ5N2MtYjIxZS00MmNlLThiZTktNzUxNGYxOTI1ZWRlIiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9"
-    st.components.v1.iframe(powerbi_url, height=600, scrolling=True)
+    tab1, tab2 = st.tabs(["📊 PowerBi", "📊 PDF"])
+
+    with tab1:
+        st.subheader("📊 Relatório Integrado - Power BI")
+        powerbi_url = "https://app.powerbi.com/view?r=eyJrIjoiOTM0NWQ5N2MtYjIxZS00MmNlLThiZTktNzUxNGYxOTI1ZWRlIiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9"
+        st.components.v1.iframe(powerbi_url, height=600, scrolling=True)
+    with tab2:
+        st.subheader("📄 Relatório em PDF - Power BI")
+        url_pdf = "https://jucisrs.rs.gov.br/upload/arquivos/201710/30150625-criacao-de-pdf-a.pdf"
+        exibir_pdf_via_url(url_pdf)
+
 
