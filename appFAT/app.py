@@ -269,7 +269,7 @@ elif menu == "Relatório Power BI":
         st.components.v1.iframe(powerbi_url, height=600, scrolling=True)
     with tab2:
         st.subheader("📄 Relatório em PDF - Power BI")
-        url_pdf = "https://jucisrs.rs.gov.br/upload/arquivos/201710/30150625-criacao-de-pdf-a.pdf"
+        url_pdf = "https://drive.google.com/file/d/15I8BLEJND8BJAO6HhjSOlz0J3WCeuZ0p/view?usp=sharing"
         exibir_pdf_via_url(url_pdf)
 
 
